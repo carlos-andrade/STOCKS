@@ -17,7 +17,7 @@
     "event_id": {"type": "string", "minLength": 1},
     "ticker": {"type": "string", "pattern": "^[A-Z0-9]{4,12}$"},
     "company": {"type": ["string", "null"]},
-    "event_type": {"enum": ["GRUPAMENTO", "DESDOBRAMENTO"]},
+    "event_type": {"enum": ["GRUPAMENTO", "DESDOBRAMENTO", "BONIFICACAO"]},
     "new_shares_per_old_share": {"type": "number", "exclusiveMinimum": 0},
     "announcement_date": {"type": ["string", "null"], "format": "date"},
     "effective_date": {"type": "string", "format": "date"},
@@ -33,12 +33,17 @@
   "allOf": [
     {
       "if": {"properties": {"event_type": {"const": "GRUPAMENTO"}}},
-      "then": {"properties": {"new_shares_per_old_share": {"maximum": 1}}
+      "then": {"properties": {"new_shares_per_old_share": {"exclusiveMaximum": 1}}
       }
     },
     {
       "if": {"properties": {"event_type": {"const": "DESDOBRAMENTO"}}},
-      "then": {"properties": {"new_shares_per_old_share": {"minimum": 1}}
+      "then": {"properties": {"new_shares_per_old_share": {"exclusiveMinimum": 1}}
+      }
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "BONIFICACAO"}}},
+      "then": {"properties": {"new_shares_per_old_share": {"exclusiveMinimum": 1}}
       }
     }
   ],
