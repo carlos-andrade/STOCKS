@@ -1,18 +1,26 @@
 # AÇÕES — Análise de ações da B3
 
-Esta pasta é o diretório obrigatório de todas as análises individuais de ações brasileiras.
+Esta pasta é o diretório obrigatório das análises individuais e dos mecanismos comuns de validação de ações.
 
-## Regra de criação
+## Regra de criação e análise por ticker
 
-Quando uma ação/ticker for identificado como objeto de análise em qualquer conversa relacionada ao projeto STOCKS:
-1. Confirmar o ticker e a classe do ativo na B3 (não inferir apenas pelo nome).
-2. Verificar se `AÇÕES/<TICKER>/` já existe.
-3. Se não existir, criar a pasta a partir de `_MODELO_ACAO/`.
-4. Registar o ativo em `../registry/acoes.json` e atualizar o índice abaixo.
-5. Guardar cada análise, fonte, cálculo, decisão e revisão dentro da pasta do ticker.
-6. Não sobrescrever análises históricas: criar novo registo datado e manter trilha de auditoria.
+Quando uma ação/ticker for identificado como objeto de análise no projeto STOCKS:
+1. Confirmar o ticker e a classe do ativo em fonte oficial.
+2. Verificar se `AÇÕES/<TICKER>/` existe; criar a pasta a partir de `_MODELO_ACAO/` se necessário.
+3. Executar o verificador de grupamentos e desdobramentos antes de calcular retornos de longo prazo ou comparar preços históricos.
+4. Consultar os registos locais e as fontes oficiais do emissor, B3 e CVM.
+5. Registar fontes, URLs, datas, proporções, classe de ação, validação e limitações.
+6. Guardar análises e snapshots datados na pasta do ticker sem apagar histórico anterior.
 
-**Limite operacional:** esta regra é a convenção permanente do projeto. Uma conversa não consegue, por si só, observar automaticamente todas as outras conversas; para criação global sem intervenção humana, será necessária uma integração explícita que encaminhe os tickers mencionados para o repositório.
+**Limite operacional:** esta regra define a rotina de trabalho do projeto, mas uma conversa não consegue observar automaticamente todas as outras conversas. A verificação pode ser executada localmente ou pelo workflow GitHub Actions. Para disparo direto a partir de qualquer conversa, é necessária uma integração externa explícita.
+
+## Estrutura transversal
+
+- [`GRUPAMENTOS/`](GRUPAMENTOS/README.md) — registo de grupamentos verificados.
+- [`DESDOBRAMENTOS/`](DESDOBRAMENTOS/README.md) — registo de desdobramentos verificados.
+- [`VERIFICADOR_EVENTOS_SOCIETARIOS/`](VERIFICADOR_EVENTOS_SOCIETARIOS/README.md) — CLI, esquema, testes e workflow de verificação.
+- [`FONTES/`](FONTES/README.md) — catálogo de fontes do projeto.
+- [`_MODELO_ACAO/`](%5FMODELO_ACAO/README.md) — modelo de dossiê por ação.
 
 ## Índice de ações
 
