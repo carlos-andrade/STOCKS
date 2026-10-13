@@ -11,10 +11,12 @@ on:
       - ".github/workflows/test-verificador-eventos.yml"
   push:
     branches:
-      - "feat/verificador-grupamentos-desdobramentos-v1"
+      - "feat/**"
     paths:
       - "AÇÕES/GRUPAMENTOS/**"
       - "AÇÕES/DESDOBRAMENTOS/**"
+      - "AÇÕES/BONIFICACOES/**"
+      - "AÇÕES/PETR4/**"
       - "AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/**"
       - ".github/workflows/test-verificador-eventos.yml"
 
