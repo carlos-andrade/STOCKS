@@ -10,6 +10,14 @@ SPEC.loader.exec_module(MODULE)
 
 
 class CorporateActionVerifierTests(unittest.TestCase):
+    def test_all_registered_verified_events_are_consistent(self):
+        events, errors = MODULE.load_events()
+        self.assertEqual(errors, [])
+        self.assertGreaterEqual(len(events), 3)
+        for event in events:
+            if event.get("verification_status") == "VERIFICADO":
+                self.assertEqual(MODULE.validate_verified_event(event), [], event.get("event_id"))
+
     def test_reverse_split_factor_must_be_below_one(self):
         event = {
             "event_id": "TEST-RS-1", "ticker": "TEST3", "event_type": "GRUPAMENTO",
