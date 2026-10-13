@@ -11,3 +11,7 @@ A pasta [`GOVERNANÇA/`](GOVERNAN%C3%87A/README.md) contém a adaptação operac
 ## Análise de ações
 
 Consulte [`AÇÕES/`](A%C3%87%C3%95ES/README.md) para a estrutura individual por ticker e o [`catálogo de fontes`](A%C3%87%C3%95ES/FONTES/README.md).
+
+## Eventos societários e histórico de preços
+
+O [verificador de grupamentos e desdobramentos](A%C3%87%C3%95ES/VERIFICADOR_EVENTOS_SOCIETARIOS/README.md) pesquisa candidatos públicos e valida o registo local antes da análise de séries históricas. Consulte também os registos de [grupamentos](A%C3%87%C3%95ES/GRUPAMENTOS/README.md) e [desdobramentos](A%C3%87%C3%95ES/DESDOBRAMENTOS/README.md). A descoberta automática não é prova de inexistência de eventos; evidências primárias devem ser revistas.
