@@ -176,7 +176,7 @@ def build_report(ticker: str, events: list[dict[str, Any]], candidates: list[dic
             lines += [
                 f"### {event.get('event_id', 'Evento sem ID')} — {event.get('event_type', 'tipo desconhecido')}",
                 f"- Estado de verificação: {event.get('verification_status', 'UNKNOWN')}",
-                f"- Fator (ações novas por ação antiga): {event.get('post_event_shares_per_pre_event_share', 'ND')}",
+                f"- Fator total (ações após / ações antes): {event.get('post_event_shares_per_pre_event_share', 'ND')}",
                 f"- Data efetiva: {event.get('effective_date', 'ND')}",
                 f"- Fonte: {event.get('source_url', 'ND')}",
                 f"- Tipo de fonte: {event.get('source_type', 'ND')}",
