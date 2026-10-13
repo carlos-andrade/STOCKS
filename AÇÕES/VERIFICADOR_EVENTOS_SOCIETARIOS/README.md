@@ -42,7 +42,7 @@ O modo online usa pesquisa pública na web para **descobrir candidatos**. A disp
 - **FAIL:** registo inválido, proporção incoerente ou evidência obrigatória ausente num evento marcado como verificado.
 
 ## Fórmula para normalização de preços
-Para evento com `new_shares_per_old_share = fator`, o preço histórico expresso em unidades antigas é convertido para unidades atuais dividindo pelo produto dos fatores posteriores ao preço observado. Exemplo: split 5:1 → fator 5 → preço histórico dividido por 5. Grupamento 1:100 → fator 0,01 → preço histórico dividido por 0,01 (multiplicado por 100). Bonificação de 33,3333% → fator total aproximado 1,333333.
+Para evento com `post_event_shares_per_pre_event_share = fator`, o preço histórico expresso em unidades antigas é convertido para unidades atuais dividindo pelo produto dos fatores posteriores ao preço observado. Exemplo: split 5:1 → fator 5 → preço histórico dividido por 5. Grupamento 1:100 → fator 0,01 → preço histórico dividido por 0,01 (multiplicado por 100). Bonificação de 33,3333% → fator total aproximado 1,333333.
 
 **Limite importante:** o preço inicial de oferta/abertura de capital (IPO) é um dado distinto. Para o reconstruir, precisamos localizar o preço original de emissão e todos os eventos societários relevantes desde a oferta. Grupamentos, desdobramentos e bonificações, isoladamente, não explicam subscrições, cisões, incorporações, alterações de classe, distribuições ou dividendos. O relatório não deve chamar o primeiro preço histórico de “preço original do IPO” sem fonte específica.
 
