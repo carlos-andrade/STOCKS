@@ -1,23 +1,25 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-10-13T16:34:00Z",
+  "updated_at": "2026-10-13T16:40:00Z",
   "events": [
     {
       "event_id": "PETR4-DES-2008-01",
       "ticker": "PETR4",
       "company": "Petróleo Brasileiro S.A. — Petrobras",
       "event_type": "DESDOBRAMENTO",
-      "new_shares_per_old_share": 2,
       "announcement_date": null,
       "effective_date": "2008-04-25",
-      "record_date": "2008-04-25",
+      "record_date": null,
       "source_url": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesPage/main/9512/PETR/corporate-actions?language=pt-BR",
       "source_type": "B3",
       "document_title": "B3 — Eventos corporativos de PETR (PETR3/PETR4)",
       "verification_status": "VERIFICADO",
       "verified_by": "STOCKS — revisão documental assistida por IA",
       "verified_at": "2026-10-13T16:34:00Z",
-      "notes": "A B3 regista desdobramento com fator/percentagem de 100, isto é, distribuição de uma ação nova por cada ação existente; fator total de quantidade = 2,0. A tabela lista as classes ordinária e preferencial. Confirmar a data operacional exata em documentação do emissor se a análise exigir precisão intradiária."
+      "notes": "A B3 indica desdobramento de 100%, isto é, uma ação nova por cada ação existente; fator total = 2,0. A tabela aponta 25/04/2008 como última data para negociar com direito. As demonstrações financeiras arquivadas pela companhia descrevem a operação como efetiva a partir de 25/04/2008. A data ex para ajuste de cotação não foi preenchida sem fonte específica e deve ser confirmada antes de cálculos de retorno por sessão.",
+      "post_event_shares_per_pre_event_share": 2,
+      "last_cum_date": "2008-04-25",
+      "ex_date": null
     }
   ]
 }
