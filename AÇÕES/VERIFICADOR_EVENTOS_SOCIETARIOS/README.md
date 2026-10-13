@@ -1,13 +1,14 @@
-# Verificador de Grupamentos e Desdobramentos
+# Verificador de Eventos Societários
 
 **ID:** STOCKS-EVENTOS-VER-001 · **Versão:** 1.0.0 · **Estado:** MVP documental e CLI, sujeito a validação operacional.
 
 ## Objetivo
-Quando um ticker for indicado para análise, executar uma verificação de eventos de grupamento e desdobramento, pesquisar referências públicas e consultar o registo local. O objetivo é identificar alterações na quantidade de ações e permitir reconciliar séries de preços.
+Quando um ticker for indicado para análise, executar uma verificação de eventos de grupamento, desdobramento e bonificação, pesquisar referências públicas e consultar o registo local. O objetivo é identificar alterações na quantidade de ações e permitir reconciliar séries de preços.
 
 ## Pastas de dados
 - `../GRUPAMENTOS/registros.json`: eventos verificados de grupamento.
 - `../DESDOBRAMENTOS/registros.json`: eventos verificados de desdobramento.
+- `../BONIFICACOES/registros.json`: eventos verificados de bonificação.
 - `schemas/evento-societario.schema.json`: contrato de dados.
 - `scripts/verificar_eventos.py`: CLI de verificação local e descoberta web.
 - `tests/test_verificar_eventos.py`: testes automatizados.
@@ -41,9 +42,9 @@ O modo online usa pesquisa pública na web para **descobrir candidatos**. A disp
 - **FAIL:** registo inválido, proporção incoerente ou evidência obrigatória ausente num evento marcado como verificado.
 
 ## Fórmula para normalização de preços
-Para evento com `new_shares_per_old_share = fator`, o preço histórico expresso em unidades antigas é convertido para unidades atuais dividindo pelo produto dos fatores posteriores ao preço observado. Exemplo: split 5:1 → fator 5 → preço histórico dividido por 5. Grupamento 1:10 → fator 0,1 → preço histórico dividido por 0,1 (multiplicado por 10).
+Para evento com `new_shares_per_old_share = fator`, o preço histórico expresso em unidades antigas é convertido para unidades atuais dividindo pelo produto dos fatores posteriores ao preço observado. Exemplo: split 5:1 → fator 5 → preço histórico dividido por 5. Grupamento 1:100 → fator 0,01 → preço histórico dividido por 0,01 (multiplicado por 100). Bonificação de 33,3333% → fator total aproximado 1,333333.
 
-**Limite importante:** o preço inicial de oferta/abertura de capital (IPO) é um dado distinto. Para o reconstruir, precisamos localizar o preço original de emissão e todos os eventos societários relevantes desde a oferta. Grupamentos e desdobramentos, isoladamente, não explicam bonificações, subscrições, cisões, incorporações, alterações de classe, distribuições ou dividendos. O relatório não deve chamar o primeiro preço histórico de “preço original do IPO” sem fonte específica.
+**Limite importante:** o preço inicial de oferta/abertura de capital (IPO) é um dado distinto. Para o reconstruir, precisamos localizar o preço original de emissão e todos os eventos societários relevantes desde a oferta. Grupamentos, desdobramentos e bonificações, isoladamente, não explicam subscrições, cisões, incorporações, alterações de classe, distribuições ou dividendos. O relatório não deve chamar o primeiro preço histórico de “preço original do IPO” sem fonte específica.
 
 ## Fontes prioritárias
 1. Relações com Investidores do emissor: comunicados, atas, avisos e histórico de eventos.
