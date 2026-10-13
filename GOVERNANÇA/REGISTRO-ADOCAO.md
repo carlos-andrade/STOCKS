@@ -48,3 +48,15 @@ Na consulta, o README da fonte-mãe informava estado de finalização e 80% comp
 | Data | Alteração | Estado |
 |---|---|---|
 | 2026-10-13 | Estrutura documental local e matriz de controlos iniciais | Publicação dos ficheiros registada via commits; validação pós-publicação a executar. |
+
+
+## Inspeção técnica inicial — 2026-10-13
+
+Foi iniciada a verificação por caminhos conhecidos. Confirmados: README principal, índice AÇÕES, catálogo de fontes e modelo de dossier. Os caminhos `registry/acoes.json`, `scripts/criar_acao.py` e `.github/workflows/criar-pasta-acao.yml` não foram encontrados na branch `main`. A pesquisa de código não devolveu resultados e a árvore integral não ficou disponível nesta inspeção; por isso, o inventário é parcial e não se declara auditoria completa.
+
+Registos adicionados:
+- [Inventário técnico inicial](INVENTARIO-TECNICO.md)
+- [Roadmap de implementação](ROADMAP-IMPLEMENTACAO-CONTROLOS.md)
+- [Evidência da inspeção](REGISTOS/REGISTRO-INSPECAO-2026-10-13.md)
+
+**Decisão operacional:** não declarar WATCHDOG ativo no STOCKS. Completar a árvore técnica, confirmar owners, definir contratos e testar antes de integrar. Os owners permanecem UNKNOWN até serem formalmente atribuídos.
