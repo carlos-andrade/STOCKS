@@ -6,7 +6,7 @@
 
 ## 1. Resumo executivo
 
-A inspeção confirmou a documentação de governação, a estrutura `AÇÕES/`, o catálogo de fontes e a pasta-modelo por ticker. Não foram encontrados, nos caminhos técnicos verificados, o registo `registry/acoes.json`, o script `scripts/criar_acao.py` ou o workflow `.github/workflows/criar-pasta-acao.yml`. Também não foi identificado, nesta inspeção, um pipeline de ingestão, uma base de dados de mercado ou automação WATCHDOG local ao STOCKS.
+A inspeção confirmou a documentação de governação, a estrutura `AÇÕES/`, o catálogo de fontes e a pasta-modelo por ticker. Foi obtida a listagem do diretório raiz e das pastas `AÇÕES/`, `AÇÕES/_MODELO_ACAO/`, `AÇÕES/FONTES/` e `GOVERNANÇA/`. A raiz contém `AÇÕES/`, `GOVERNANÇA/`, `LICENSE` e `README.md`; não contém diretórios `.github/`, `scripts/` ou `registry/`. Assim, o registo `registry/acoes.json`, o script `scripts/criar_acao.py` e o workflow `.github/workflows/criar-pasta-acao.yml` não existem na branch `main` observada. Não foi identificado pipeline de ingestão, base de dados de mercado ou automação WATCHDOG local ao STOCKS.
 
 **Conclusão:** a base atual é sobretudo documental. A automação de criação de dossiers, o inventário de dados e a integração de monitorização continuam por implementar ou por localizar e verificar.
 
@@ -72,7 +72,7 @@ Não foi encontrada evidência documental suficiente para atribuir papéis opera
 
 ## 6. Limitações da inspeção
 
-A pesquisa por código do GitHub não devolveu resultados para STOCKS e a consulta da árvore completa não ficou disponível nesta inspeção. Por isso, a verificação foi feita por leitura de ficheiros conhecidos e consultas de caminhos específicos. O inventário é útil para identificar lacunas confirmadas, mas ainda não é um mapa exaustivo de todos os ficheiros e workflows.
+A listagem da raiz e das subpastas relevantes foi obtida via API de conteúdo do GitHub. A raiz confirma que não há diretórios `.github/`, `scripts/` ou `registry/` na branch `main` observada. A inspeção foi aprofundada na estrutura AÇÕES e na governança, mas não incluiu execução de código, testes funcionais, auditoria de permissões, análise de histórico completo nem validação externa de dados. O inventário de estrutura está confirmado para os diretórios listados; a auditoria operacional continua pendente.
 
 ## 7. Próximo passo de auditoria
 
