@@ -30,6 +30,26 @@ class CorporateActionVerifierTests(unittest.TestCase):
         }
         self.assertEqual(MODULE.validate_verified_event(event), [])
 
+    def test_bonus_factor_must_be_above_one(self):
+        event = {
+            "event_id": "TEST-BONUS-1", "ticker": "TEST3", "event_type": "BONIFICACAO",
+            "new_shares_per_old_share": 4 / 3, "effective_date": "2020-01-01",
+            "source_url": "https://ri.example.com/event", "source_type": "RI_EMISSOR",
+            "verification_status": "VERIFICADO", "verified_by": "reviewer",
+            "verified_at": "2020-01-01T00:00:00Z"
+        }
+        self.assertEqual(MODULE.validate_verified_event(event), [])
+
+    def test_bonus_factor_of_one_is_invalid(self):
+        event = {
+            "event_id": "TEST-BONUS-2", "ticker": "TEST3", "event_type": "BONIFICACAO",
+            "new_shares_per_old_share": 1, "effective_date": "2020-01-01",
+            "source_url": "https://ri.example.com/event", "source_type": "RI_EMISSOR",
+            "verification_status": "VERIFICADO", "verified_by": "reviewer",
+            "verified_at": "2020-01-01T00:00:00Z"
+        }
+        self.assertTrue(MODULE.validate_verified_event(event))
+
     def test_search_candidate_cannot_be_accepted_as_verified_without_review(self):
         event = {
             "event_id": "TEST-S-2", "ticker": "TEST3", "event_type": "DESDOBRAMENTO",
