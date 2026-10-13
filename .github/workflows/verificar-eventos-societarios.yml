@@ -1,0 +1,55 @@
+name: STOCKS — Verificador de Grupamentos e Desdobramentos
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker a verificar (ex.: PETR4)"
+        required: true
+        type: string
+      modo_offline:
+        description: "Consultar apenas o registo local"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verificar-eventos-societarios-${{ inputs.ticker }}
+  cancel-in-progress: false
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validar sintaxe e executar testes
+        run: |
+          python -m py_compile AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/scripts/verificar_eventos.py
+          python -m unittest discover -s AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/tests -v
+      - name: Executar verificação
+        shell: bash
+        env:
+          TICKER_INPUT: ${{ inputs.ticker }}
+          OFFLINE_INPUT: ${{ inputs.modo_offline }}
+        run: |
+          args=(--ticker "$TICKER_INPUT" --output "AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/relatorios/$TICKER_INPUT.md")
+          if [[ "$OFFLINE_INPUT" == "true" ]]; then
+            args+=(--offline)
+          fi
+          python AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/scripts/verificar_eventos.py "${args[@]}"
+      - name: Publicar relatório como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: verificacao-eventos-${{ inputs.ticker }}
+          path: AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/relatorios/${{ inputs.ticker }}.md
+          if-no-files-found: error
+          retention-days: 90
