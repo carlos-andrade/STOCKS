@@ -1,0 +1,39 @@
+name: STOCKS — Testes do Verificador de Eventos Societários
+
+on:
+  pull_request:
+    paths:
+      - "AÇÕES/GRUPAMENTOS/**"
+      - "AÇÕES/DESDOBRAMENTOS/**"
+      - "AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/**"
+      - ".github/workflows/test-verificador-eventos.yml"
+  push:
+    branches:
+      - "feat/verificador-grupamentos-desdobramentos-v1"
+    paths:
+      - "AÇÕES/GRUPAMENTOS/**"
+      - "AÇÕES/DESDOBRAMENTOS/**"
+      - "AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/**"
+      - ".github/workflows/test-verificador-eventos.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validar sintaxe
+        run: python -m py_compile AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/scripts/verificar_eventos.py
+      - name: Executar testes unitários
+        run: python -m unittest discover -s AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/tests -v
+      - name: Validar JSON dos registos e schema
+        run: |
+          python -c "import json,pathlib; [json.loads(pathlib.Path(p).read_text(encoding='utf-8')) for p in ['AÇÕES/GRUPAMENTOS/registros.json','AÇÕES/DESDOBRAMENTOS/registros.json','AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/schemas/evento-societario.schema.json']]; print('JSON válido')"
