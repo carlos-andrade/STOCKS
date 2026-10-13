@@ -30,7 +30,7 @@ O fator foi normalizado para o contrato de dados STOCKS: ações totais após o 
 - **1993:** a proporção de 79 ações novas por ação antiga está documentada no relatório anual da Petrobras; a data de negociação ajustada/ex-date de 05/07/1993 ainda depende de confirmação primária específica. O evento permanece `PENDENTE` no registo até resolver a data.
 - **1994:** a bonificação e o fator estão listados pela B3; a data ex de 28/03/1994 é inferida a partir do último dia com direito de 25/03/1994 e permanece pendente de confirmação primária.
 - **2000:** o grupamento de 100:1 está listado pela B3; a data ex de 23/06/2000 é inferida a partir do último dia com direito de 21/06/2000, considerando o feriado de Corpus Christi em 22/06/2000. A data ex permanece pendente de confirmação primária.
-- **Evento adicional alegado em 2000:** a fonte secundária AUVP indica desdobramento de 900% com data-com 22/06/2000. O fator total 10 é uma interpretação provisória da percentagem, não um facto confirmado. Necessário localizar ata/aviso da Petrobras ou documento oficial da B3/CVM e confirmar a ordem em relação ao grupamento.
+- **Evento adicional alegado em 2000:** a fonte secundária AUVP indica desdobramento de 900% com data-com 22/06/2000. Uma tese académica depositada no repositório de teses da USP também lista desdobramento de PETR4 em 22/06/2000 na proporção 1:10, seguido dos eventos de 2005 e 2008. Esta convergência secundária é consistente com fator total 10, mas não substitui ata/aviso da Petrobras ou documento oficial da B3/CVM. O evento continua `PENDENTE`; falta confirmar a natureza, a data efetiva e a ordem em relação ao grupamento.
 
 A ausência de uma data confirmada não invalida o fator do evento quando este está documentado; significa que a data não deve ser usada como comprovada em cálculos históricos por sessão.
 ## Preço original de emissão / primeiro negócio em bolsa
@@ -56,7 +56,7 @@ Para um evento com fator total `f = ações após / ações antes`, converter pr
 4. [Petrobras — documento arquivado na SEC sobre o ajuste de 2008](https://www.sec.gov/Archives/edgar/data/831001/000119312510139139/dfwp.htm).
 5. [Lei nº 2.004/1953 — Câmara dos Deputados](https://www2.camara.leg.br/legin/fed/lei/1950-1959/lei-2004-3-outubro-1953-366242-publicacaooriginal-1-pl.html) — capital inicial legal, não prova de preço de IPO.
 6. [Formulário de Referência Petrobras — Latibex](https://www.latibex.com/docs/Documentos/LED/2022/12/14/TRACN_20220401_123519_B11_122574_20220101_DOC001.pdf) — listagem em 1956 e primeiro negócio em 1957.
-7. [FAQ oficial da Petrobras — cotações históricas](https://www.investidorpetrobras.com.br/servicos-ao-investidor/investidor-individual/perguntas-frequentes/) — acervo público da B3 a partir de 1986.
+7. [FAQ oficial da Petrobras — cotações históricas](https://www.investidorpetrobras.com.br/servicos-ao-investidor/investidor-individual/perguntas-frequentes/) — acervo público da B3 a partir de 1986.\n8. [Tese académica no repositório de teses da USP, Tabela 4.2](https://teses.usp.br/teses/disponiveis/45/45133/tde-14072011-221932/publico/tese_final.pdf) — referência secundária que lista desdobramento PETR4 em 22/06/2000 na proporção 1:10; serve como corroboração secundária, não como documento societário primário.
 
 ## Limitações e próxima etapa
 
