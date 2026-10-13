@@ -4,7 +4,7 @@
 
 ## Regras
 - Registar a percentagem anunciada e o fator total de ações após/antes em campos distintos na documentação.
-- No registo canónico, `new_shares_per_old_share` representa o fator total: 33,3333% de bonificação corresponde a aproximadamente `1.33333333333`, não a `0.33333333333`.
+- No registo canónico, `post_event_shares_per_pre_event_share` representa o fator total: 33,3333% de bonificação corresponde a aproximadamente `1.33333333333`, não a `0.33333333333`.
 - Só marcar como verificado com evidência institucional específica, datas e proporção rastreáveis.
 - A ausência de evento registado não prova inexistência de bonificação.
 
