@@ -1,7 +1,45 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-10-13T16:40:00Z",
+  "updated_at": "2026-10-13T16:44:00Z",
   "events": [
+    {
+      "event_id": "PETR4-DES-1993-01",
+      "ticker": "PETR4",
+      "company": "Petróleo Brasileiro S.A. — Petrobras",
+      "event_type": "DESDOBRAMENTO",
+      "post_event_shares_per_pre_event_share": 80,
+      "announcement_date": null,
+      "effective_date": "1993-07-05",
+      "record_date": null,
+      "last_cum_date": null,
+      "ex_date": null,
+      "source_url": "https://bibliotecadigital.aepet.org.br/wp-content/uploads/2024/01/Relatorio-anual-1993.pdf",
+      "source_type": "RI_EMISSOR",
+      "document_title": "Relatório anual da Petrobras de 1993 — desdobramento de ações",
+      "verification_status": "PENDENTE",
+      "verified_by": "STOCKS — revisão documental assistida por IA",
+      "verified_at": "2026-10-13T16:44:00Z",
+      "notes": "O relatório anual da companhia descreve a AGE de 02/07/1993 e a emissão de 79 ações novas por ação existente, fator total 80. O Decreto de 02/07/1993 está disponível em https://legis.senado.leg.br/norma/375645/publicacao/15655719. A data de 05/07/1993 aparece em fontes históricas secundárias; manter a data efetiva/ex-date pendente até corroborar em documento primário específico."
+    },
+    {
+      "event_id": "PETR4-DES-2005-01",
+      "ticker": "PETR4",
+      "company": "Petróleo Brasileiro S.A. — Petrobras",
+      "event_type": "DESDOBRAMENTO",
+      "post_event_shares_per_pre_event_share": 4,
+      "announcement_date": null,
+      "effective_date": "2005-09-01",
+      "record_date": "2005-08-31",
+      "last_cum_date": "2005-08-31",
+      "ex_date": "2005-09-01",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1119639/000095012307009305/y36368a1e20vfza.htm",
+      "source_type": "RI_EMISSOR",
+      "document_title": "Petrobras Form 20-F — desdobramento de 2005",
+      "verification_status": "VERIFICADO",
+      "verified_by": "STOCKS — revisão documental assistida por IA",
+      "verified_at": "2026-10-13T16:44:00Z",
+      "notes": "O relatório anual da companhia confirma que a AGE de 22/07/2005 aprovou a conversão de cada ação em quatro ações, com três ações novas por ação antiga, com base na posição acionária de 31/08/2005 e vigência a partir de 01/09/2005."
+    },
     {
       "event_id": "PETR4-DES-2008-01",
       "ticker": "PETR4",
@@ -16,10 +54,10 @@
       "verification_status": "VERIFICADO",
       "verified_by": "STOCKS — revisão documental assistida por IA",
       "verified_at": "2026-10-13T16:34:00Z",
-      "notes": "A B3 indica desdobramento de 100%, isto é, uma ação nova por cada ação existente; fator total = 2,0. A tabela aponta 25/04/2008 como última data para negociar com direito. As demonstrações financeiras arquivadas pela companhia descrevem a operação como efetiva a partir de 25/04/2008. A data ex para ajuste de cotação não foi preenchida sem fonte específica e deve ser confirmada antes de cálculos de retorno por sessão.",
+      "notes": "A B3 indica desdobramento de 100%, isto é, uma ação nova por cada ação existente; fator total = 2,0. A B3 aponta 25/04/2008 como último dia para negociar com direito; a companhia reportou efeito a partir de 25/04/2008 e o Form 20-F do emissor indica negociação ajustada a partir de 28/04/2008. Fontes: B3 e https://www.sec.gov/Archives/edgar/data/831001/000119312510139139/dfwp.htm.",
       "post_event_shares_per_pre_event_share": 2,
       "last_cum_date": "2008-04-25",
-      "ex_date": null
+      "ex_date": "2008-04-28"
     }
   ]
 }
