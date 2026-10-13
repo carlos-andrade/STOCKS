@@ -64,4 +64,4 @@ jobs:
           if errors:
               raise SystemExit("\n".join(errors))
           print("Registos JSON válidos contra o schema.")
-          PY"
+          PY
