@@ -47,6 +47,9 @@ Em caso de conflito, prevalece a fonte de maior autoridade e o conflito deve ser
 - [10 — Fontes normativas](10-FONTES-NORMATIVAS.md)
 - [Matriz de controlos](MATRIZ-CONTROLOS.md)
 - [Registo de adoção](REGISTO-ADOCAO.md)
+- [Inventário técnico inicial](INVENTARIO-TECNICO.md)
+- [Roadmap de implementação dos controlos](ROADMAP-IMPLEMENTACAO-CONTROLOS.md)
+- [Registo da inspeção técnica de 2026-10-13](REGISTOS/REGISTRO-INSPECAO-2026-10-13.md)
 - [Registos e modelos](REGISTOS/README.md)
 
 ## Forma mínima de adoção
