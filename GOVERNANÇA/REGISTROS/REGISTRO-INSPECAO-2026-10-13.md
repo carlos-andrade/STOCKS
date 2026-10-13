@@ -17,9 +17,9 @@
 | `scripts/criar_acao.py` | 404 / não encontrado | Consulta direta do caminho no branch `main`. |
 | `.github/workflows/criar-pasta-acao.yml` | 404 / não encontrado | Consulta direta do caminho no branch `main`. |
 
-## Limitação técnica
+## Resultado da inspeção estrutural
 
-A listagem integral da árvore não foi obtida por esta via e a pesquisa de código não devolveu resultados. Logo, não se declara que todos os ficheiros, workflows ou dados foram inspecionados. As ausências acima referem-se apenas aos caminhos consultados.
+A listagem da raiz e das pastas `AÇÕES/`, `AÇÕES/_MODELO_ACAO/`, `AÇÕES/FONTES/` e `GOVERNANÇA/` foi obtida. A raiz da branch `main` contém `AÇÕES/`, `GOVERNANÇA/`, `LICENSE` e `README.md`; não existem diretórios `.github/`, `scripts/` ou `registry/` na raiz observada. A pesquisa de código não devolveu resultados. Não foram executados testes de código nem auditadas permissões, histórico completo ou dados externos.
 
 ## Decisão de controlo
 
