@@ -7,7 +7,7 @@ Esta pasta é o diretório obrigatório das análises individuais e dos mecanism
 Quando uma ação/ticker for identificado como objeto de análise no projeto STOCKS:
 1. Confirmar o ticker e a classe do ativo em fonte oficial.
 2. Verificar se `AÇÕES/<TICKER>/` existe; criar a pasta a partir de `_MODELO_ACAO/` se necessário.
-3. Executar o verificador de grupamentos e desdobramentos antes de calcular retornos de longo prazo ou comparar preços históricos.
+3. Executar o verificador de eventos societários (grupamentos, desdobramentos e bonificações) antes de calcular retornos de longo prazo ou comparar preços históricos.
 4. Consultar os registos locais e as fontes oficiais do emissor, B3 e CVM.
 5. Registar fontes, URLs, datas, proporções, classe de ação, validação e limitações.
 6. Guardar análises e snapshots datados na pasta do ticker sem apagar histórico anterior.
@@ -18,6 +18,8 @@ Quando uma ação/ticker for identificado como objeto de análise no projeto STO
 
 - [`GRUPAMENTOS/`](GRUPAMENTOS/README.md) — registo de grupamentos verificados.
 - [`DESDOBRAMENTOS/`](DESDOBRAMENTOS/README.md) — registo de desdobramentos verificados.
+- [`BONIFICACOES/`](BONIFICACOES/README.md) — registo de bonificações verificadas.
+- [`PETR4/`](PETR4/README.md) — dossiê de eventos históricos e investigação do preço original de emissão de PETR4.
 - [`VERIFICADOR_EVENTOS_SOCIETARIOS/`](VERIFICADOR_EVENTOS_SOCIETARIOS/README.md) — CLI, esquema, testes e workflow de verificação.
 - [`FONTES/`](FONTES/README.md) — catálogo de fontes do projeto.
 - [`_MODELO_ACAO/`](%5FMODELO_ACAO/README.md) — modelo de dossiê por ação.

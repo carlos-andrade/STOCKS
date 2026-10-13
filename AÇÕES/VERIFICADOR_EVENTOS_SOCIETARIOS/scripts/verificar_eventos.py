@@ -20,6 +20,7 @@ VERIFY_DIR = ROOT / "AÇÕES" / "VERIFICADOR_EVENTOS_SOCIETARIOS"
 REGISTRY_FILES = {
     "GRUPAMENTO": ROOT / "AÇÕES" / "GRUPAMENTOS" / "registros.json",
     "DESDOBRAMENTO": ROOT / "AÇÕES" / "DESDOBRAMENTOS" / "registros.json",
+    "BONIFICACAO": ROOT / "AÇÕES" / "BONIFICACOES" / "registros.json",
 }
 OFFICIAL_HINTS = ("b3.com.br", "gov.br/cvm", "investidor", "ri.", "ri/")
 SEARCH_URL = "https://html.duckduckgo.com/html/?q="
@@ -70,6 +71,7 @@ def search_web(ticker: str, timeout: int = 12) -> tuple[list[dict[str, str]], li
     queries = [
         f'"{ticker}" grupamento ações',
         f'"{ticker}" desdobramento ações split',
+        f'"{ticker}" bonificação ações',
         f'"{ticker}" site:b3.com.br grupamento OR desdobramento',
         f'"{ticker}" site:gov.br/cvm grupamento OR desdobramento',
         f'"{ticker}" site:ri.* desdobramento OR grupamento',
@@ -117,18 +119,20 @@ def load_events() -> tuple[list[dict[str, Any]], list[str]]:
 
 def validate_verified_event(event: dict[str, Any]) -> list[str]:
     problems: list[str] = []
-    required = ("event_id", "ticker", "event_type", "new_shares_per_old_share",
+    required = ("event_id", "ticker", "event_type", "post_event_shares_per_pre_event_share",
                 "effective_date", "source_url", "source_type", "verification_status")
     for key in required:
         if event.get(key) in (None, ""):
             problems.append(f"campo obrigatório ausente: {key}")
-    factor = event.get("new_shares_per_old_share")
+    factor = event.get("post_event_shares_per_pre_event_share")
     if not isinstance(factor, (int, float)) or isinstance(factor, bool) or factor <= 0:
-        problems.append("new_shares_per_old_share tem de ser um número positivo")
+        problems.append("post_event_shares_per_pre_event_share tem de ser um número positivo")
     elif event.get("event_type") == "GRUPAMENTO" and factor >= 1:
         problems.append("grupamento exige fator inferior a 1 (ações novas por ação antiga)")
     elif event.get("event_type") == "DESDOBRAMENTO" and factor <= 1:
         problems.append("desdobramento exige fator superior a 1 (ações novas por ação antiga)")
+    elif event.get("event_type") == "BONIFICACAO" and factor <= 1:
+        problems.append("bonificação exige fator total superior a 1 (ações após / ações antes)")
     if event.get("verification_status") == "VERIFICADO":
         if event.get("source_type") not in {"RI_EMISSOR", "B3", "CVM"}:
             problems.append("evento VERIFICADO exige fonte primária RI_EMISSOR, B3 ou CVM")
@@ -160,7 +164,7 @@ def build_report(ticker: str, events: list[dict[str, Any]], candidates: list[dic
         status = "UNKNOWN"
 
     lines = [
-        f"# Verificação de grupamentos e desdobramentos — {ticker}", "",
+        f"# Verificação de eventos societários — {ticker}", "",
         f"- **Estado:** {status}",
         f"- **Data/hora UTC:** {datetime.now(timezone.utc).isoformat(timespec='seconds')}",
         f"- **Modo:** {'offline' if offline else 'online (descoberta de candidatos)'}",
@@ -172,7 +176,7 @@ def build_report(ticker: str, events: list[dict[str, Any]], candidates: list[dic
             lines += [
                 f"### {event.get('event_id', 'Evento sem ID')} — {event.get('event_type', 'tipo desconhecido')}",
                 f"- Estado de verificação: {event.get('verification_status', 'UNKNOWN')}",
-                f"- Fator (ações novas por ação antiga): {event.get('new_shares_per_old_share', 'ND')}",
+                f"- Fator (ações novas por ação antiga): {event.get('post_event_shares_per_pre_event_share', 'ND')}",
                 f"- Data efetiva: {event.get('effective_date', 'ND')}",
                 f"- Fonte: {event.get('source_url', 'ND')}",
                 f"- Tipo de fonte: {event.get('source_type', 'ND')}",
@@ -204,7 +208,7 @@ def build_report(ticker: str, events: list[dict[str, Any]], candidates: list[dic
         "- Abrir a fonte primária, confirmar ticker/classe, proporção e datas, e adicionar o registo à pasta correspondente.",
         "- Se a pesquisa for inconclusiva, manter UNKNOWN e consultar RI, B3 e CVM.",
         "", "## Impacto na série de preços", "",
-        "Para cada evento validado, usar fator = ações novas / ações antigas. Para converter um preço histórico para unidades atuais, dividir o preço pelo produto dos fatores aplicáveis após a data desse preço.",
+        "Para cada evento validado, usar fator = ações totais após / ações antes. Para converter um preço histórico para unidades atuais, dividir o preço pelo produto dos fatores aplicáveis após a data desse preço. Bonificação de 33,3333% corresponde a fator total aproximado de 1,333333.",
         "O preço de IPO/emissão inicial deve ser pesquisado separadamente; o histórico de grupamentos e desdobramentos não substitui a fonte do preço inicial."
     ]
     return status, "\n".join(lines) + "\n"

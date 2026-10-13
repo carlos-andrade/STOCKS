@@ -5,14 +5,18 @@ on:
     paths:
       - "AÇÕES/GRUPAMENTOS/**"
       - "AÇÕES/DESDOBRAMENTOS/**"
+      - "AÇÕES/BONIFICACOES/**"
+      - "AÇÕES/PETR4/**"
       - "AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/**"
       - ".github/workflows/test-verificador-eventos.yml"
   push:
     branches:
-      - "feat/verificador-grupamentos-desdobramentos-v1"
+      - "feat/**"
     paths:
       - "AÇÕES/GRUPAMENTOS/**"
       - "AÇÕES/DESDOBRAMENTOS/**"
+      - "AÇÕES/BONIFICACOES/**"
+      - "AÇÕES/PETR4/**"
       - "AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/**"
       - ".github/workflows/test-verificador-eventos.yml"
 
@@ -36,4 +40,4 @@ jobs:
         run: python -m unittest discover -s AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/tests -v
       - name: Validar JSON dos registos e schema
         run: |
-          python -c "import json,pathlib; [json.loads(pathlib.Path(p).read_text(encoding='utf-8')) for p in ['AÇÕES/GRUPAMENTOS/registros.json','AÇÕES/DESDOBRAMENTOS/registros.json','AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/schemas/evento-societario.schema.json']]; print('JSON válido')"
+          python -c "import json,pathlib; [json.loads(pathlib.Path(p).read_text(encoding='utf-8')) for p in ['AÇÕES/GRUPAMENTOS/registros.json','AÇÕES/DESDOBRAMENTOS/registros.json','AÇÕES/BONIFICACOES/registros.json','AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/schemas/evento-societario.schema.json']]; print('JSON válido')"

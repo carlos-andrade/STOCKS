@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-10-13T16:40:00Z",
+  "events": [
+    {
+      "event_id": "PETR4-BON-1994-01",
+      "ticker": "PETR4",
+      "company": "Petróleo Brasileiro S.A. — Petrobras",
+      "event_type": "BONIFICACAO",
+      "announcement_date": null,
+      "effective_date": "1994-03-28",
+      "record_date": null,
+      "source_url": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesPage/main/9512/PETR/corporate-actions?language=pt-BR",
+      "source_type": "B3",
+      "document_title": "B3 — Eventos corporativos de PETR (PETR3/PETR4)",
+      "verification_status": "PENDENTE",
+      "verified_by": "STOCKS — revisão documental assistida por IA",
+      "verified_at": "2026-10-13T16:34:00Z",
+      "notes": "A B3 indica bonificação de 33,333333333% e 25/03/1994 como data de deliberação e última data para negociar com direito. O fator total de ações após/antes é 1 + 1/3 = 1,33333333333. A data efetiva 28/03/1994 é apenas inferida como dia útil seguinte à última data com direito; permanece pendente de confirmação primária específica e não deve ser tratada como data ex confirmada.",
+      "post_event_shares_per_pre_event_share": 1.33333333333,
+      "last_cum_date": "1994-03-25",
+      "ex_date": null
+    }
+  ]
+}

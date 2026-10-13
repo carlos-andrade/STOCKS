@@ -7,7 +7,7 @@
     "event_id",
     "ticker",
     "event_type",
-    "new_shares_per_old_share",
+    "post_event_shares_per_pre_event_share",
     "effective_date",
     "source_url",
     "source_type",
@@ -17,11 +17,13 @@
     "event_id": {"type": "string", "minLength": 1},
     "ticker": {"type": "string", "pattern": "^[A-Z0-9]{4,12}$"},
     "company": {"type": ["string", "null"]},
-    "event_type": {"enum": ["GRUPAMENTO", "DESDOBRAMENTO"]},
-    "new_shares_per_old_share": {"type": "number", "exclusiveMinimum": 0},
+    "event_type": {"enum": ["GRUPAMENTO", "DESDOBRAMENTO", "BONIFICACAO"]},
+    "post_event_shares_per_pre_event_share": {"type": "number", "exclusiveMinimum": 0},
     "announcement_date": {"type": ["string", "null"], "format": "date"},
     "effective_date": {"type": "string", "format": "date"},
     "record_date": {"type": ["string", "null"], "format": "date"},
+    "last_cum_date": {"type": ["string", "null"], "format": "date"},
+    "ex_date": {"type": ["string", "null"], "format": "date"},
     "source_url": {"type": "string", "format": "uri"},
     "source_type": {"enum": ["RI_EMISSOR", "B3", "CVM", "OUTRA_FONTE"]},
     "document_title": {"type": ["string", "null"]},
@@ -33,12 +35,17 @@
   "allOf": [
     {
       "if": {"properties": {"event_type": {"const": "GRUPAMENTO"}}},
-      "then": {"properties": {"new_shares_per_old_share": {"maximum": 1}}
+      "then": {"properties": {"post_event_shares_per_pre_event_share": {"exclusiveMaximum": 1}}
       }
     },
     {
       "if": {"properties": {"event_type": {"const": "DESDOBRAMENTO"}}},
-      "then": {"properties": {"new_shares_per_old_share": {"minimum": 1}}
+      "then": {"properties": {"post_event_shares_per_pre_event_share": {"exclusiveMinimum": 1}}
+      }
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "BONIFICACAO"}}},
+      "then": {"properties": {"post_event_shares_per_pre_event_share": {"exclusiveMinimum": 1}}
       }
     }
   ],
