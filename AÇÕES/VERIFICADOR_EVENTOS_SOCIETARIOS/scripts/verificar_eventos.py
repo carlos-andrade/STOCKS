@@ -119,14 +119,14 @@ def load_events() -> tuple[list[dict[str, Any]], list[str]]:
 
 def validate_verified_event(event: dict[str, Any]) -> list[str]:
     problems: list[str] = []
-    required = ("event_id", "ticker", "event_type", "new_shares_per_old_share",
+    required = ("event_id", "ticker", "event_type", "post_event_shares_per_pre_event_share",
                 "effective_date", "source_url", "source_type", "verification_status")
     for key in required:
         if event.get(key) in (None, ""):
             problems.append(f"campo obrigatório ausente: {key}")
-    factor = event.get("new_shares_per_old_share")
+    factor = event.get("post_event_shares_per_pre_event_share")
     if not isinstance(factor, (int, float)) or isinstance(factor, bool) or factor <= 0:
-        problems.append("new_shares_per_old_share tem de ser um número positivo")
+        problems.append("post_event_shares_per_pre_event_share tem de ser um número positivo")
     elif event.get("event_type") == "GRUPAMENTO" and factor >= 1:
         problems.append("grupamento exige fator inferior a 1 (ações novas por ação antiga)")
     elif event.get("event_type") == "DESDOBRAMENTO" and factor <= 1:
@@ -176,7 +176,7 @@ def build_report(ticker: str, events: list[dict[str, Any]], candidates: list[dic
             lines += [
                 f"### {event.get('event_id', 'Evento sem ID')} — {event.get('event_type', 'tipo desconhecido')}",
                 f"- Estado de verificação: {event.get('verification_status', 'UNKNOWN')}",
-                f"- Fator (ações novas por ação antiga): {event.get('new_shares_per_old_share', 'ND')}",
+                f"- Fator (ações novas por ação antiga): {event.get('post_event_shares_per_pre_event_share', 'ND')}",
                 f"- Data efetiva: {event.get('effective_date', 'ND')}",
                 f"- Fonte: {event.get('source_url', 'ND')}",
                 f"- Tipo de fonte: {event.get('source_type', 'ND')}",
