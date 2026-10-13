@@ -23,13 +23,13 @@
 - **2008:** a B3 regista desdobramento de 100% (uma ação adicional por ação existente). O [documento da Petrobras arquivado na SEC](https://www.sec.gov/Archives/edgar/data/831001/000119312510139139/dfwp.htm) indica que a cotação ajustada passou a refletir o desdobramento a partir de 28/04/2008. A data societária e a data de negociação ajustada são campos diferentes.
 
 O fator foi normalizado para o contrato de dados STOCKS: ações totais após o evento divididas pelas ações antes do evento. Para o desdobramento de 2008, o valor “100” exibido pela B3 é a percentagem de desdobramento, não um fator total 100x.
-## Candidatos ainda não confirmados
+## Lacunas de validação
 
-- **05/07/1993 — alegado desdobramento 80:1:** não foi confirmado na tabela consultada da B3 nem foi localizada, nesta revisão, evidência primária específica. Não incorporar como evento confirmado.
-- **2005 — alegado desdobramento 4:1:** não foi confirmado na tabela consultada da B3 nem foi localizada, nesta revisão, evidência primária específica. Não incorporar como evento confirmado.
+- **1993:** a proporção de 79 ações novas por ação antiga está documentada no relatório anual da Petrobras; a data de negociação ajustada/ex-date de 05/07/1993 ainda depende de confirmação primária específica. O evento permanece `PENDENTE` no registo até resolver a data.
+- **1994:** a bonificação e o fator estão listados pela B3; a data ex de 28/03/1994 é inferida a partir do último dia com direito de 25/03/1994 e permanece pendente de confirmação primária.
+- **2000:** o grupamento de 100:1 está listado pela B3; a data ex de 23/06/2000 é inferida a partir do último dia com direito de 21/06/2000, considerando o feriado de Corpus Christi em 22/06/2000. A data ex permanece pendente de confirmação primária.
 
-Estes pontos permanecem pendentes de pesquisa em documentos históricos da companhia/CVM; a ausência na tabela atual da B3 não prova que nunca ocorreram.
-
+A ausência de uma data confirmada não invalida o fator do evento quando este está documentado; significa que a data não deve ser usada como comprovada em cálculos históricos por sessão.
 ## Preço original de emissão / IPO
 
 **Estado: UNKNOWN — preço original de IPO não estabelecido.** Não confundir valor nominal legal, preço de subscrição, preço de oferta pública e primeira cotação observada.
