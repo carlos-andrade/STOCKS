@@ -1,23 +1,25 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-10-13T16:34:00Z",
+  "updated_at": "2026-10-13T16:40:00Z",
   "events": [
     {
       "event_id": "PETR4-GRP-2000-01",
       "ticker": "PETR4",
       "company": "Petróleo Brasileiro S.A. — Petrobras",
       "event_type": "GRUPAMENTO",
-      "new_shares_per_old_share": 0.01,
-      "announcement_date": "2000-05-23",
-      "effective_date": "2000-06-21",
-      "record_date": "2000-06-21",
+      "announcement_date": null,
+      "effective_date": "2000-06-22",
+      "record_date": null,
       "source_url": "https://sistemaswebb3-listados.b3.com.br/listedCompaniesPage/main/9512/PETR/corporate-actions?language=pt-BR",
       "source_type": "B3",
       "document_title": "B3 — Eventos corporativos de PETR (PETR3/PETR4)",
-      "verification_status": "VERIFICADO",
+      "verification_status": "PENDENTE",
       "verified_by": "STOCKS — revisão documental assistida por IA",
       "verified_at": "2026-10-13T16:34:00Z",
-      "notes": "A tabela oficial da B3 indica grupamento, deliberação em 23/05/2000 e fator 0,01000000000, com última data para negociação antes do evento em 21/06/2000. Fator interpretado como 1 ação pós-evento para 100 ações pré-evento. Aplicável às classes ordinária e preferencial; este registo está indexado a PETR4."
+      "notes": "A B3 indica deliberação em 23/05/2000, fator 0,01000000000 e última data para negociação com direito em 21/06/2000. O fator corresponde a 1 ação pós-evento para 100 ações pré-evento. A data efetiva 22/06/2000 é inferida como dia útil seguinte à última data com direito e permanece pendente de confirmação primária específica. Aplicável às classes ordinária e preferencial; este registo está indexado a PETR4.",
+      "post_event_shares_per_pre_event_share": 0.01,
+      "last_cum_date": "2000-06-21",
+      "ex_date": null
     }
   ]
 }
