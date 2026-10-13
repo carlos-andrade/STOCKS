@@ -11,7 +11,7 @@
 - A ausência de evento encontrado não prova que nunca houve desdobramento. Usar `UNKNOWN` quando a cobertura histórica não for suficiente.
 
 ## Arquivos
-- `registros.json`: registo canónico dos eventos verificados de desdobramento.
+- `registros.json`: registo canónico dos eventos de desdobramento verificados e candidatos pendentes, com estado explícito por registo.
 - `../VERIFICADOR_EVENTOS_SOCIETARIOS/README.md`: execução e estados do verificador.
 
 ## Proporção
