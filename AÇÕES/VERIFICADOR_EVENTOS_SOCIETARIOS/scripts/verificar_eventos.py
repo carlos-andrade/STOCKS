@@ -209,7 +209,7 @@ def build_report(ticker: str, events: list[dict[str, Any]], candidates: list[dic
         "- Se a pesquisa for inconclusiva, manter UNKNOWN e consultar RI, B3 e CVM.",
         "", "## Impacto na série de preços", "",
         "Para cada evento validado, usar fator = ações totais após / ações antes. Para converter um preço histórico para unidades atuais, dividir o preço pelo produto dos fatores aplicáveis após a data desse preço. Bonificação de 33,3333% corresponde a fator total aproximado de 1,333333.",
-        "O preço de IPO/emissão inicial deve ser pesquisado separadamente; o histórico de grupamentos e desdobramentos não substitui a fonte do preço inicial."
+        "O preço de IPO/emissão inicial deve ser pesquisado separadamente; o histórico de grupamentos, desdobramentos e bonificações não substitui a fonte do preço inicial."
     ]
     return status, "\n".join(lines) + "\n"
 
