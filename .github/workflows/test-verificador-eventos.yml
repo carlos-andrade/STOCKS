@@ -38,6 +38,30 @@ jobs:
         run: python -m py_compile AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/scripts/verificar_eventos.py
       - name: Executar testes unitários
         run: python -m unittest discover -s AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/tests -v
-      - name: Validar JSON dos registos e schema
+      - name: Instalar validador JSON Schema
+        run: python -m pip install jsonschema
+      - name: Validar registos contra o JSON Schema
         run: |
-          python -c "import json,pathlib; [json.loads(pathlib.Path(p).read_text(encoding='utf-8')) for p in ['AÇÕES/GRUPAMENTOS/registros.json','AÇÕES/DESDOBRAMENTOS/registros.json','AÇÕES/BONIFICACOES/registros.json','AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/schemas/evento-societario.schema.json']]; print('JSON válido')"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator, FormatChecker
+
+          schema_path = Path("AÇÕES/VERIFICADOR_EVENTOS_SOCIETARIOS/schemas/evento-societario.schema.json")
+          schema = json.loads(schema_path.read_text(encoding="utf-8"))
+          validator = Draft202012Validator(schema, format_checker=FormatChecker())
+          paths = [
+              "AÇÕES/GRUPAMENTOS/registros.json",
+              "AÇÕES/DESDOBRAMENTOS/registros.json",
+              "AÇÕES/BONIFICACOES/registros.json",
+          ]
+          errors = []
+          for path in paths:
+              registry = json.loads(Path(path).read_text(encoding="utf-8"))
+              for index, event in enumerate(registry.get("events", [])):
+                  for error in validator.iter_errors(event):
+                      errors.append(f"{path} evento[{index}]: {error.message}")
+          if errors:
+              raise SystemExit("\n".join(errors))
+          print("Registos JSON válidos contra o schema.")
+          PY"
