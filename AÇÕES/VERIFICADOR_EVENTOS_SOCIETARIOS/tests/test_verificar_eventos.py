@@ -18,6 +18,19 @@ class CorporateActionVerifierTests(unittest.TestCase):
             if event.get("verification_status") == "VERIFICADO":
                 self.assertEqual(MODULE.validate_verified_event(event), [], event.get("event_id"))
 
+    def test_pending_candidate_is_reported_as_warn_not_verified(self):
+        event = {
+            "event_id": "TEST-CANDIDATE-2000", "ticker": "TEST3", "event_type": "DESDOBRAMENTO",
+            "post_event_shares_per_pre_event_share": 10, "effective_date": "2000-06-22",
+            "source_url": "https://example.com/secondary", "source_type": "OUTRA_FONTE",
+            "verification_status": "PENDENTE", "verified_by": None, "verified_at": None,
+            "notes": "Candidato secundário; não usar em cálculos."
+        }
+        status, report = MODULE.build_report("TEST3", [event], [], [], [], True)
+        self.assertEqual(status, "WARN")
+        self.assertIn("Estado de verificação: PENDENTE", report)
+        self.assertIn("Fator total (ações após / ações antes): 10", report)
+        self.assertNotIn("Estado de verificação: VERIFICADO", report)
     def test_reverse_split_factor_must_be_below_one(self):
         event = {
             "event_id": "TEST-RS-1", "ticker": "TEST3", "event_type": "GRUPAMENTO",
