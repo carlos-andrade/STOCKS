@@ -53,6 +53,7 @@ Para um evento com fator total `f = ações após / ações antes`, converter pr
 4. [Petrobras — documento arquivado na SEC sobre o ajuste de 2008](https://www.sec.gov/Archives/edgar/data/831001/000119312510139139/dfwp.htm).
 5. [Lei nº 2.004/1953 — Câmara dos Deputados](https://www2.camara.leg.br/legin/fed/lei/1950-1959/lei-2004-3-outubro-1953-366242-publicacaooriginal-1-pl.html) — capital inicial legal, não prova de preço de IPO.
 6. [Formulário de Referência Petrobras — Latibex](https://www.latibex.com/docs/Documentos/LED/2022/12/14/TRACN_20220401_123519_B11_122574_20220101_DOC001.pdf) — listagem em 1956 e primeiro negócio em 1957.
+7. [FAQ oficial da Petrobras — cotações históricas](https://www.investidorpetrobras.com.br/servicos-ao-investidor/investidor-individual/perguntas-frequentes/) — acervo público da B3 a partir de 1986.
 
 ## Limitações e próxima etapa
 
