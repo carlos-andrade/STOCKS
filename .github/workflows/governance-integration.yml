@@ -2,6 +2,12 @@ name: GOVERNANCA — piloto F3 (diagnóstico)
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "feat/**"
+    paths:
+      - ".governanca/config.yml"
+      - ".github/workflows/governance-integration.yml"
   pull_request:
     paths:
       - ".governanca/config.yml"
