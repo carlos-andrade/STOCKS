@@ -1,0 +1,23 @@
+name: GOVERNANCA — piloto F3 (diagnóstico)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".governanca/config.yml"
+      - ".github/workflows/governance-integration.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: governance-integration-pilot-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  governance-diagnosis:
+    uses: carlos-andrade/GOVERNANCA/.github/workflows/governance-integration-reusable.yml@6ffe4eaa7692715f0f5c966bc38490c8a712e1b1
+    with:
+      config_path: .governanca/config.yml
+      mode: diagnostico
+      source_ref: 6ffe4eaa7692715f0f5c966bc38490c8a712e1b1
