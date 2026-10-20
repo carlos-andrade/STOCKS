@@ -22,8 +22,8 @@ concurrency:
 
 jobs:
   governance-diagnosis:
-    uses: carlos-andrade/GOVERNANCA/.github/workflows/governance-integration-reusable.yml@6ffe4eaa7692715f0f5c966bc38490c8a712e1b1
+    uses: carlos-andrade/GOVERNANCA/.github/workflows/governance-integration-reusable.yml@e105218721d771f58264044bb7ad9fba7ab65b84
     with:
       config_path: .governanca/config.yml
       mode: diagnostico
-      source_ref: 6ffe4eaa7692715f0f5c966bc38490c8a712e1b1
+      source_ref: e105218721d771f58264044bb7ad9fba7ab65b84
