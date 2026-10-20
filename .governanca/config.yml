@@ -1,0 +1,10 @@
+# Configuração do piloto F3 — diagnóstico somente de leitura.
+# Fonte oficial fixada num commit imutável para reprodutibilidade.
+governanca:
+  fonte: carlos-andrade/GOVERNANCA
+  modo: diagnostico
+  perfil: dados
+  exigir_pull_request: true
+  preservar_ficheiros_existentes: true
+  auditoria: obrigatoria
+  ref: c9be6d5224c7b412aa78a2b1d417b8315e5730f1

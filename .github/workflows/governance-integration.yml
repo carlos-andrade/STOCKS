@@ -1,0 +1,30 @@
+name: GOVERNANCA — piloto F3 (diagnóstico)
+# Revalidação após atualização coordenada do catálogo e motor oficial.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "feat/**"
+    paths:
+      - ".governanca/config.yml"
+      - ".github/workflows/governance-integration.yml"
+  pull_request:
+    paths:
+      - ".governanca/config.yml"
+      - ".github/workflows/governance-integration.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: governance-integration-pilot-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  governance-diagnosis:
+    uses: carlos-andrade/GOVERNANCA/.github/workflows/governance-integration-reusable.yml@c9be6d5224c7b412aa78a2b1d417b8315e5730f1
+    with:
+      config_path: .governanca/config.yml
+      mode: diagnostico
+      source_ref: c9be6d5224c7b412aa78a2b1d417b8315e5730f1
