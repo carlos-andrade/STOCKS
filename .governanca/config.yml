@@ -7,4 +7,4 @@ governanca:
   exigir_pull_request: true
   preservar_ficheiros_existentes: true
   auditoria: obrigatoria
-  ref: 6ffe4eaa7692715f0f5c966bc38490c8a712e1b1
+  ref: e105218721d771f58264044bb7ad9fba7ab65b84
