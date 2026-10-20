@@ -1,4 +1,5 @@
 name: GOVERNANCA — piloto F3 (diagnóstico)
+# Revalidação após atualização coordenada do catálogo e motor oficial.
 
 on:
   workflow_dispatch:
