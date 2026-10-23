@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source_repository": "carlos-andrade/GOVERNANCA",
   "source_branch": "main",
-  "source_commit": "9885035b80114dd11cb6a486d8b662bd3aa533a9",
+  "source_commit": "e54c3ca24b04971f39a5c804beedc21ff1aff355",
   "distribution_policy": "pull_request_only",
   "files": [
     {
@@ -56,6 +56,11 @@
       "sha256": "8f6542fddda41a670f9bf64796e4bf0b4bfa1b94343f232cefe1c703e61e3f18"
     },
     {
+      "source_path": "CABEÇALHO/REGISTO-APROVACAO-G0-2026-10-23.md",
+      "destination_path": ".governanca/upstream/CABEÇALHO/REGISTO-APROVACAO-G0-2026-10-23.md",
+      "sha256": "0f6aec75313b06a3d943b6b678126bdab8365d58bb116462811cba3072838f19"
+    },
+    {
       "source_path": "CABEÇALHO/REGISTO-APROVACAO-NORMA-1.0.3.md",
       "destination_path": ".governanca/upstream/CABEÇALHO/REGISTO-APROVACAO-NORMA-1.0.3.md",
       "sha256": "a9fc3ff5b8fa1dda70711af68a670d7fbeead4f5735d4973052df1cebf10a2f4"
@@ -78,7 +83,7 @@
     {
       "source_path": "CONSTITUICAO.md",
       "destination_path": ".governanca/upstream/CONSTITUICAO.md",
-      "sha256": "f913d134fa46f5f47fb2ec625c3ea70ec74d688b0de27234cc9ca4bfd870e771"
+      "sha256": "c7dbc7eb7755721f4cb2dbd4983642499f7ecc01c016bc0e1ec3378a8dd40c47"
     },
     {
       "source_path": "ROADMAP-PADRAO-GOVERNANCA.md",
@@ -328,7 +333,7 @@
     {
       "source_path": "docs/01-governanca/papeis-e-responsabilidades.md",
       "destination_path": ".governanca/upstream/docs/01-governanca/papeis-e-responsabilidades.md",
-      "sha256": "f972b4d4544e3c0cfd8d696c474ce430b68fc8a604029145d3e4d338f6bf1840"
+      "sha256": "f4c738d3e50dfa1e792d101be0b1a620a945c8f6ca38c860f52774b3baff40bf"
     },
     {
       "source_path": "docs/01-governanca/politica-de-conformidade-documental.md",
@@ -338,7 +343,7 @@
     {
       "source_path": "docs/01-governanca/politica-de-decisoes.md",
       "destination_path": ".governanca/upstream/docs/01-governanca/politica-de-decisoes.md",
-      "sha256": "921bf6b842a516d1b4083b4aa83b8ed84f67d1e8ada2cd9c59902bede58ece0d"
+      "sha256": "4a9b6c1793f6aef8c03a7134b528ae763da5f023ec1038567474a4263dbf5eb5"
     },
     {
       "source_path": "docs/01-governanca/politica-de-excecoes.md",
