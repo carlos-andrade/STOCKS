@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source_repository": "carlos-andrade/GOVERNANCA",
   "source_branch": "main",
-  "source_commit": "e54c3ca24b04971f39a5c804beedc21ff1aff355",
+  "source_commit": "9d157f7c11d580b0b8039b31df525dea30c002c6",
   "distribution_policy": "pull_request_only",
   "files": [
     {
@@ -308,7 +308,7 @@
     {
       "source_path": "docs/01-governanca/MATRIZ-ADOPCAO-CONSUMIDORES-2026-10-21.md",
       "destination_path": ".governanca/upstream/docs/01-governanca/MATRIZ-ADOPCAO-CONSUMIDORES-2026-10-21.md",
-      "sha256": "454831ed1c3728b7ad4fceeb1e7d98c94fc4e7427ebcfeb42cc5c3ba0236411a"
+      "sha256": "6ce4b468106219f484a75a75f21c51e3b677c2de8db1496b846d5b05636d3679"
     },
     {
       "source_path": "docs/01-governanca/RELATORIO-PILOTO-F3-STOCKS.md",
@@ -414,6 +414,16 @@
       "source_path": "docs/07-operacoes-e-resiliencia/operacoes-e-observabilidade.md",
       "destination_path": ".governanca/upstream/docs/07-operacoes-e-resiliencia/operacoes-e-observabilidade.md",
       "sha256": "970ba9732ab19d7bb08ac6d22dff529080dda6d45d4d678e68019001d9563ebd"
+    },
+    {
+      "source_path": "standards/botao-aprovacao-documental.md",
+      "destination_path": ".governanca/upstream/standards/botao-aprovacao-documental.md",
+      "sha256": "bc6f25e4b69b71b4d79d08e40865980531645ea89dddb0436732a6e34c7dc28a"
+    },
+    {
+      "source_path": "standards/sincronizacao-integral-documentacao.md",
+      "destination_path": ".governanca/upstream/standards/sincronizacao-integral-documentacao.md",
+      "sha256": "69f135bc6baea385af36e2378e9c00fe00ec082c94672ab7c501bf57ca28991b"
     },
     {
       "source_path": "standards/status-e-percentual-de-conclusao.md",
